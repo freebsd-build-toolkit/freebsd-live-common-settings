@@ -1,0 +1,26 @@
+#!/bin/sh
+
+user_dirs()
+{
+mkdir -p /home/freebsd/Desktop
+mkdir -p /root/Desktop
+echo "Please add xdg-user-dirs in pkglist"
+}
+
+desktop_icons()
+{
+if [ -e /usr/local/share/applications/fbi.desktop ] ; then
+    cp -af /usr/local/share/applications/fbi.desktop \
+    /home/freebsd/Desktop
+    chmod +x /home/freebsd/Desktop/fbi.desktop
+fi
+
+if [ -e /usr/local/share/applications/fbi.desktop ] ; then
+    cp -af /usr/local/share/applications/fbi.desktop \
+    /root/Desktop
+    chmod +x /root/Desktop/fbi.desktop
+fi
+}
+
+user_dirs
+desktop_icons
